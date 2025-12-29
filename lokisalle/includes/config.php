@@ -11,7 +11,7 @@ define('DB_CHARSET', 'utf8mb4');
 
 
 define('SITE_NAME', 'lokisalle ');
-define('SITE_URL', 'http://localhost/lokisalle');
+define('SITE_URL', 'http://localhost/Project_Lokissale');
 
 define('ROOT_PATH', dirname(__FILE__));
 define('UPLOAD_PATH', ROOT_PATH . '/uploads/');

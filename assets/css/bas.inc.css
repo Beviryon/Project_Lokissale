@@ -1,0 +1,119 @@
+/**
+ * Fichier CSS pour bas.inc.php
+ * Styles spécifiques au footer (Zone 5 : Pied de page)
+ */
+
+/* ============================================
+   FOOTER (Zone 5)
+   ============================================ */
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.footer-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.footer-separator {
+    color: var(--white);
+    opacity: 0.5;
+    padding: 0 0.25rem;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* ============================================
+   NEWSLETTER FOOTER
+   ============================================ */
+.footer-newsletter-form {
+    display: inline;
+    margin: 0;
+}
+
+.footer-link-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.footer-link-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.footer-links span {
+    color: var(--white);
+    opacity: 0.8;
+    padding: 0.25rem 0.5rem;
+}
+
+/* ============================================
+   RESPONSIVE FOOTER
+   ============================================ */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 1.5rem 0;
+        margin-top: 2rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .footer-separator {
+        display: none;
+    }
+    
+    .footer-links a,
+    .footer-link-btn {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 1rem 0;
+    }
+    
+    .footer-links {
+        gap: 0.5rem;
+    }
+    
+    .footer-links a,
+    .footer-link-btn {
+        font-size: 0.9rem;
+    }
+}

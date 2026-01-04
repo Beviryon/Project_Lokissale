@@ -1,0 +1,28 @@
+/**
+ * Fichier CSS spécifique à inscription.php
+ */
+
+.inscription-container {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.error-message {
+    background-color: #fee;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.error-message ul {
+    margin-left: 1.5rem;
+}
+
+.inscription-form .btn {
+    width: 100%;
+}
+
+.inscription-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+}

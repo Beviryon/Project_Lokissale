@@ -1,0 +1,129 @@
+/**
+ * Fichier CSS pour menu.inc.php
+ * Styles spécifiques au menu de navigation (Zone 2) et messages flash
+ */
+
+/* ============================================
+   NAVIGATION (Zone 2)
+   ============================================ */
+.main-nav {
+    background-color: var(--primary-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    display: inline-block;
+}
+
+.nav-list a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    transition: all 0.3s;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.nav-separator {
+    color: var(--white);
+    opacity: 0.5;
+    padding: 0 0.25rem;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* ============================================
+   MESSAGES FLASH
+   ============================================ */
+.flash-message {
+    background-color: var(--success-color);
+    color: var(--white);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+}
+
+.flash-message.error {
+    background-color: var(--accent-color);
+}
+
+.flash-message.warning {
+    background-color: var(--warning-color);
+}
+
+.flash-message p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+    min-height: calc(100vh - 250px);
+    padding: 2rem 0;
+}
+
+/* ============================================
+   RESPONSIVE NAVIGATION
+   ============================================ */
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-list {
+        justify-content: center;
+        gap: 0.25rem;
+    }
+    
+    .nav-list a {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .nav-separator {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-list a {
+        display: block;
+        padding: 0.75rem;
+        width: 100%;
+    }
+}

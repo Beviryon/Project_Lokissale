@@ -1,0 +1,84 @@
+/**
+ * Fichier CSS pour haut.inc.php
+ * Styles spécifiques au header (Zone 1 : Logo / Bannière / Slogan)
+ */
+
+/* ============================================
+   HEADER (Zone 1)
+   ============================================ */
+.site-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--white);
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.logo a:hover {
+    opacity: 0.9;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin: 0.25rem 0 0 0;
+    font-weight: 300;
+}
+
+/* ============================================
+   RESPONSIVE HEADER
+   ============================================ */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 1rem 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+}

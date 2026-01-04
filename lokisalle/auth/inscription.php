@@ -1,5 +1,0 @@
-<?php 
-/**
- * page d'inscription 
- */
-?>

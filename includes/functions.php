@@ -1,41 +1,56 @@
 <?php
+/**
+ * Fichier contenant les fonctions utilitaires réutilisables
+ */
 
-require_once __DIR__ . '/database.php';
+require_once dirname(__FILE__) . '/database.php';
 
 /**
-  * Vérifie si un utilisateur est connecté 
-  */
-
-function isloggedIn() {
-   return isset($_SESSION['membre']['statut']) && $_SESSION['membre']['statut'] == 1;
+ * Vérifie si un utilisateur est connecté
+ */
+function isLoggedIn() {
+    return isset($_SESSION['membre']) && !empty($_SESSION['membre']);
 }
 
+/**
+ * Vérifie si l'utilisateur connecté est administrateur
+ */
 function isAdmin() {
-   return isloggedIn() && isset($_SESSION['membre']['statut']) && $_SESSION['membre']['statut'] == 1;
+    return isLoggedIn() && isset($_SESSION['membre']['statut']) && $_SESSION['membre']['statut'] == 1;
 }
 
+/**
+ * Redirige vers une page avec un message
+ */
 function redirect($url, $message = '') {
-   if (!empty($message)) {
-      $_SESSION['message'] = $message;
-   }
-   //si l'url ne commence pas par http, ajoute SITE_URL
-   if (strpos($url, 'http') !== 0) {
-      $url = SITE_URL . '/' . ltrim($url, '/');
-   }
-   header("Location: $url");
-   exit();
+    // Sauvegarder le message dans la session si fourni
+    if (!empty($message)) {
+        $_SESSION['message'] = $message;
+    }
+    
+    // Si l'URL ne commence pas par http, ajouter SITE_URL
+    if (strpos($url, 'http') !== 0 && strpos($url, '/') !== 0) {
+        $url = SITE_URL . '/' . ltrim($url, '/');
+    } elseif (strpos($url, '/') === 0) {
+        // Si l'URL commence par /, ajouter SITE_URL
+        $url = SITE_URL . $url;
+    }
+    
+    // Redirection HTTP (302 Found - redirection temporaire)
+    header("Location: " . $url, true, 302);
+    exit();
 }
 
-function getFlashMessage(){
-    if (isset($_SESION['message'])) {
+/**
+ * Affiche et supprime les messages flash
+ */
+function getFlashMessage() {
+    if (isset($_SESSION['message'])) {
         $message = $_SESSION['message'];
         unset($_SESSION['message']);
         return $message;
     }
-
     return '';
-    
-
 }
 
 /**
@@ -166,6 +181,4 @@ function requireLogin() {
         redirect('auth/connexion.php', 'Vous devez être connecté pour accéder à cette page.');
     }
 }
-
-
 ?>

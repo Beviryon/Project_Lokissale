@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
             
-            // Redirection vers profil.php (selon cahier des charges)
+            // Redirection vers profil.php 
             redirect('pages/profil.php', 'Connexion réussie ! Bienvenue ' . $membre['pseudo'] . ' !');
         } else {
             $errors[] = "Pseudo ou mot de passe incorrect.";

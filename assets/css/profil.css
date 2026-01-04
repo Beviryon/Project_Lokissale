@@ -1,0 +1,148 @@
+/**
+ * Fichier CSS spécifique à profil.php
+ */
+
+/* Breadcrumb */
+.breadcrumb {
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.breadcrumb p {
+    margin: 0;
+}
+
+/* Layout principal : deux colonnes */
+.profil-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--white);
+    position: relative;
+}
+
+.profil-layout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background-color: var(--border-color);
+    border-left: 1px dashed var(--border-color);
+}
+
+/* Zone 3 : Informations du membre */
+.zone-3-informations h2 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-transform: none;
+    font-weight: normal;
+}
+
+.informations-list {
+    margin-bottom: 2rem;
+}
+
+.informations-list p {
+    margin: 0.75rem 0;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.informations-list strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-mettre-a-jour {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-mettre-a-jour:hover {
+    background-color: #1a252f;
+}
+
+/* Zone 4 : Dernières commandes */
+.zone-4-commandes h2 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-transform: none;
+    font-weight: normal;
+}
+
+.commandes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.commandes-table thead {
+    background-color: #f8f9fa;
+}
+
+.commandes-table th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.commandes-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.commandes-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.link-voir {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.link-voir:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .profil-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .profil-layout::before {
+        display: none;
+    }
+    
+    .commandes-table {
+        font-size: 0.9rem;
+    }
+    
+    .commandes-table th,
+    .commandes-table td {
+        padding: 0.5rem;
+    }
+}

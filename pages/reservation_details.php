@@ -100,6 +100,12 @@ $stmt = $db->prepare("
 $stmt->execute([$id_salle]);
 $avis = $stmt->fetchAll();
 
+$id_membre_connecte = null ;
+if (isLoggedIn() && isset($_SESSION['membre']['id_membre'])) {
+    $id_membre_connecte = $_SESSION['membre']['id_membre'];
+
+}
+
 // Calcul de la note moyenne sur 10 (convertir de 1-5 à 1-10)
 $note_moyenne_10 = $produit['note_moyenne'] ? ($produit['note_moyenne'] * 2) : 0;
 
@@ -199,15 +205,31 @@ include '../includes/menu.inc.php';
             <?php if (!empty($avis)): ?>
                 <div class="avis-list">
                     <?php foreach ($avis as $un_avis): ?>
+                        <?php 
+                        $date_avis = new DateTime($un_avis['date']);
+                        ?>
                         <div class="avis-item">
-                            <?php 
-                            $date_avis = new DateTime($un_avis['date']);
-                            ?>
-                            <p class="avis-auteur-date">
-                                <strong><?php echo htmlspecialchars($un_avis['pseudo']); ?></strong>, 
-                                le <?php echo $date_avis->format('d/m/Y'); ?> à <?php echo $date_avis->format('H'); ?>h<?php echo $date_avis->format('i'); ?> 
-                                (<?php echo ($un_avis['note'] * 2); ?>/10)
-                            </p>
+                            <div class="avis-header">
+                                <p class="avis-auteur-date">
+                                    <strong><?php echo htmlspecialchars($un_avis['pseudo']); ?></strong>, 
+                                    le <?php echo $date_avis->format('d/m/Y'); ?> à <?php echo $date_avis->format('H'); ?>h<?php echo $date_avis->format('i'); ?> 
+                                    (<?php echo ($un_avis['note'] * 2); ?>/10)
+                                </p>
+                                <?php 
+                                // Afficher le bouton de suppression si l'utilisateur est l'auteur ou admin
+                                if (isLoggedIn() && $id_membre_connecte !== null && ($un_avis['id_membre'] == $id_membre_connecte || isAdmin ())):
+
+                                ?>
+                                    <form method="POST" action="<?php echo SITE_URL; ?>/actions/ajouter-avis.php" class="form-supprimer-avis" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet avis ?');">
+                                        <input type="hidden" name="action" value="delete">
+                                        <input type="hidden" name="id_avis" value="<?php echo $un_avis['id_avis']; ?>">
+                                        <input type="hidden" name="id_produit" value="<?php echo $id_produit; ?>">
+                                        <button type="submit" class="btn-supprimer-avis" title="Supprimer cet avis">
+                                            <span class="icon-supprimer">×</span>
+                                        </button>
+                                    </form>
+                                <?php endif; ?>
+                            </div>
                             <p class="avis-commentaire"><?php echo nl2br(htmlspecialchars($un_avis['commentaire'])); ?></p>
                         </div>
                     <?php endforeach; ?>

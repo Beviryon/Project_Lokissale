@@ -144,12 +144,65 @@
     background-color: #f8f9fa;
     border-radius: 4px;
     border-left: 3px solid var(--primary-color);
+    position: relative;
 }
+
+.avis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+
+}
+
+
 
 .avis-auteur-date {
     font-size: 0.9rem;
     color: #666;
-    margin-bottom: 0.5rem;
+    margin: 0;
+    flex: 1;
+}
+
+.form-supprimer-avis {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.btn-supprimer-avis {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.btn-supprimer-avis:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.4);
+}
+
+.btn-supprimer-avis:active {
+    transform: scale(0.95);
+}
+
+.icon-supprimer {
+    display: block;
+    font-weight: bold;
+    line-height: 1;
 }
 
 .avis-commentaire {
@@ -346,3 +399,4 @@
         grid-template-columns: 1fr;
     }
 }
+

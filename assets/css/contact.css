@@ -1,0 +1,115 @@
+/**
+ * Fichier CSS spécifique à contact.php
+ */
+
+.breadcrumb {
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.breadcrumb p {
+    margin: 0;
+}
+
+/* Container du formulaire */
+.contact-form-container {
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--white);
+    max-width: 800px;
+}
+
+.success-message {
+    background-color: #dfd;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #cfc;
+}
+
+.success-message p {
+    margin: 0;
+    color: #050;
+    font-size: 0.95rem;
+}
+
+.error-message {
+    background-color: #fee;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #fcc;
+}
+
+.error-message p {
+    margin: 0;
+    color: #c00;
+    font-size: 0.95rem;
+}
+
+.contact-form {
+    margin-top: 1.5rem;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(26, 37, 47, 0.1);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.btn-envoi {
+    padding: 0.75rem 2rem;
+    background-color: #666;
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-envoi:hover {
+    background-color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+}

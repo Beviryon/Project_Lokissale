@@ -14,7 +14,7 @@ $db = getDB();
 try {
     $stmt = $db->prepare("DELETE FROM newsletter WHERE id_membre = ?");
     $stmt->execute([$id_membre]);
-    redirect('pages/profil.php', 'Vous êtes maintenant désabonné de la newsletter.');
+    redirect('actions/newsletter-subscribe.php', 'Vous êtes maintenant désabonné de la newsletter.');
 } catch (PDOException $e) {
-    redirect('pages/profil.php', 'Erreur lors du désabonnement.');
+    redirect('actions/newsletter-subscribe.php', 'Erreur lors du désabonnement.');
 }

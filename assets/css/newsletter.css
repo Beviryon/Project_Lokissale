@@ -1,0 +1,179 @@
+/**
+ * Fichier CSS spécifique à newsletter-subscribe.php
+ */
+
+/* Breadcrumb */
+.breadcrumb {
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.breadcrumb p {
+    margin: 0;
+}
+
+.breadcrumb a {
+    color: var(--primary-color, #007bff);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Page newsletter */
+.newsletter-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--white, #fff);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 4px;
+}
+
+.newsletter-page h1 {
+    color: var(--primary-color, #007bff);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Section déjà abonné */
+.newsletter-already-subscribed {
+    text-align: center;
+    padding: 2rem;
+}
+
+.newsletter-already-subscribed p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.newsletter-already-subscribed p:first-child {
+    color: var(--success-color, #28a745);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.newsletter-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Section abonnement */
+.newsletter-subscribe {
+    padding: 1rem 0;
+}
+
+.newsletter-subscribe > p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.newsletter-subscribe ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.newsletter-subscribe ul li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.newsletter-subscribe ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color, #28a745);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Formulaire */
+.newsletter-form {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group p {
+    margin: 0.5rem 0;
+}
+
+.form-group p:first-child {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.form-help {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Boutons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color, #007bff);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover, #0056b3);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .newsletter-page {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .newsletter-actions,
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}

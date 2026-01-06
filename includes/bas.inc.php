@@ -2,7 +2,6 @@
 /**
  * Zone 5 : Bas de page (bas.inc.php)
  * Contient les liens du footer
- * Recommandation du cahier des charges
  */
 ?>
     </main>
@@ -20,20 +19,7 @@
                 <a href="javascript:window.print()">Imprimer la page</a>
                 <span class="footer-separator">|</span>
                 <?php if (isLoggedIn()): ?>
-                    <?php
-                    // Vérifier si le membre est déjà abonné
-                    $db = getDB();
-                    $stmt = $db->prepare("SELECT * FROM newsletter WHERE id_membre = ?");
-                    $stmt->execute([$_SESSION['membre']['id_membre']]);
-                    $abonne = $stmt->fetch();
-                    ?>
-                    <?php if (!$abonne): ?>
-                        <form method="POST" action="<?php echo SITE_URL; ?>/actions/newsletter-subscribe.php" class="footer-newsletter-form">
-                            <button type="submit" class="footer-link-btn">S'inscrire à la newsletter</button>
-                        </form>
-                    <?php else: ?>
-                        <span>Newsletter</span>
-                    <?php endif; ?>
+                    <a href="<?php echo SITE_URL; ?>/actions/newsletter-subscribe.php">Newsletter</a>
                 <?php else: ?>
                     <a href="<?php echo SITE_URL; ?>/auth/connexion.php">S'inscrire à la newsletter</a>
                 <?php endif; ?>
@@ -42,10 +28,6 @@
             </div>
         </div>
     </footer>
-    
-    <!-- CSS footer -->
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/bas.inc.css">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/commun.css">
     
     <!-- JavaScript commun (toujours chargé) -->
     <script src="<?php echo SITE_URL; ?>/assets/js/common.js"></script>

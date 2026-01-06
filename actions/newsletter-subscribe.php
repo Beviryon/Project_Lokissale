@@ -16,14 +16,14 @@ $stmt = $db->prepare("SELECT * FROM newsletter WHERE id_membre = ?");
 $stmt->execute([$id_membre]);
 
 if ($stmt->fetch()) {
-    redirect('pages/profil.php', 'Vous êtes déjà abonné à la newsletter.');
+    redirect('actions/newletter-subscribe.php', 'Vous êtes déjà abonné à la newsletter.');
 }
 
 // Ajouter l'abonnement
 try {
     $stmt = $db->prepare("INSERT INTO newsletter (id_membre, date_inscription) VALUES (?, NOW())");
     $stmt->execute([$id_membre]);
-    redirect('pages/profil.php', 'Vous êtes maintenant abonné à la newsletter !');
+    redirect('actions/newsletter-subscribe.php', 'Vous êtes maintenant abonné à la newsletter !');
 } catch (PDOException $e) {
-    redirect('pages/profil.php', 'Erreur lors de l\'abonnement.');
+    redirect('actions/newsletter-subscribe.php', 'Erreur lors de l\'abonnement.');
 }

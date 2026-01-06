@@ -8,6 +8,11 @@ require_once '../includes/functions.php';
 
 requireLogin();
 
+// Vérifier que la requête est en POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    redirect('pages/newsletter.php');
+}
+
 $id_membre = $_SESSION['membre']['id_membre'];
 $db = getDB();
 

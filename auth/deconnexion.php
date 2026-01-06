@@ -38,3 +38,4 @@ session_regenerate_id(true);
 $_SESSION['message'] = $message;
 
 redirect('index.php');
+

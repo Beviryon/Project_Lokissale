@@ -19,7 +19,7 @@
                 <a href="javascript:window.print()">Imprimer la page</a>
                 <span class="footer-separator">|</span>
                 <?php if (isLoggedIn()): ?>
-                    <a href="<?php echo SITE_URL; ?>/actions/newsletter-subscribe.php">Newsletter</a>
+                    <a href="<?php echo SITE_URL; ?>/pages/newsletter.php">Newsletter</a>
                 <?php else: ?>
                     <a href="<?php echo SITE_URL; ?>/auth/connexion.php">S'inscrire à la newsletter</a>
                 <?php endif; ?>

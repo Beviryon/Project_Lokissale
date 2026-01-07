@@ -14,6 +14,12 @@ $pageTitle = 'Modifier mon profil - LOKISALLE';
 $pageCSS = 'profil.css';
 
 $db = getDB();
+  
+// Vérifier que la session contient bien les informations du membre
+if (!isset($_SESSION['membre']) || !isset($_SESSION['membre']['id_membre'])) {
+    redirect('pages/profil.php', 'Erreur : session invalide.');
+}
+
 $id_membre = $_SESSION['membre']['id_membre'];
 
 // Récupération des informations actuelles
